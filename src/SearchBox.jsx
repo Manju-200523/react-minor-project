@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import "./SearchBox.css";
 
+
 export default function SearchBox() {
   const API_URL = "https://api.openweathermap.org/data/2.5/weather";
   const API_KEY = "c4a595e15889dbd175a496e722a9f34f";
@@ -13,6 +14,7 @@ export default function SearchBox() {
     let jsonResponse = await response.json();
     console.log(jsonResponse);
     let result = {
+      city:city,
       temp: jsonResponse.main.temp,
       tempMin: jsonResponse.main.temp_min,
       tempMax: jsonResponse.main.temp_max,
@@ -42,7 +44,7 @@ export default function SearchBox() {
 
   return (
     <div className="search-box">
-      <h3>Search for Weather</h3>
+      
       <form onSubmit={handleSubmit}>
         <TextField
           id="City"
@@ -52,9 +54,11 @@ export default function SearchBox() {
           value={city}
           onChange={handleChange}
         />
+        <br></br><br></br>
         <Button variant="contained" type="submit">
           Search
         </Button>
+        <br></br>
       </form>
     </div>
   );

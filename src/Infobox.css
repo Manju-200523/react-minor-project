@@ -1,0 +1,8 @@
+.Infobox{
+    text-align: center;
+}
+
+.classContainer{
+    display: flex;
+    justify-content: center;
+}
